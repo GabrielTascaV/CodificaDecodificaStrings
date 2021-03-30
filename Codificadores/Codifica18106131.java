@@ -1,10 +1,10 @@
 package Codificadores;
 
-public class Codifica18106131 {
+public class Codifica18106131 implements Codifica {
     public String alfabetoNormal = "abcdefghijklmnopqrstuvwxyz";
     public String alfabetoAlterado = "bcafedhgikjlnomqrptuswxvz";
 
-
+    @Override
     public String codifica(String str){
         String codificada = "";
         for(int i = 0;i<str.length();i++){
@@ -15,6 +15,8 @@ public class Codifica18106131 {
         codificada = new StringBuilder(codificada).reverse().toString();
         return codificada;
     }
+
+    @Override
     public String decodifica(String str){
         String decodificada = "";
         str = new StringBuilder(str).reverse().toString();
@@ -24,5 +26,15 @@ public class Codifica18106131 {
             decodificada += alfabetoNormal.substring(indexAlfabeto);
         }
         return decodificada;
+    }
+
+    @Override
+    public String getMatriculaAutor() {
+        return "18106131";
+    }
+
+    @Override
+    public String getNomeAutor() {
+        return "Gabriel Tasca Villa";
     }
 }

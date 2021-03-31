@@ -1,39 +1,49 @@
 package Codificadores;
 
 public class Codifica18106131 implements Codifica {
-    public String alfabetoNormal = "abcdefghijklmnopqrstuvwxyz";
-    public String alfabetoAlterado = "bcafedhgikjlnomqrptuswxvz";
+    public String alfabetoNormal = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ";
+    public String alfabetoAlterado = "bcaefdhigkjlnomqrptuswxvyzBCAEFDHIGKLJNOMQRPTUSWXVZY*";
 
-    @Override
+    
     public String codifica(String str){
-        String codificada = "";
-        for(int i = 0;i<str.length();i++){
-            String letra = str.substring(i);
-            int indexAlfabeto = alfabetoNormal.indexOf(letra);
-            codificada += alfabetoAlterado.substring(indexAlfabeto);
+        String saida = "";
+        String letra = "";
+        for(int i = 0; i<str.length();i++){
+            letra = Character.toString(str.charAt(i));
+            for( int j = 0; j<alfabetoNormal.length();j++){
+                if(letra.equals(Character.toString(alfabetoNormal.charAt(j)))){
+                    saida += alfabetoAlterado.charAt(j);
+                }
+            }
+            
         }
-        codificada = new StringBuilder(codificada).reverse().toString();
-        return codificada;
+        
+        saida = new StringBuilder(saida).reverse().toString();
+        return saida;
     }
-
-    @Override
+    
     public String decodifica(String str){
-        String decodificada = "";
+        String saida = "";
+        String letra = "";
         str = new StringBuilder(str).reverse().toString();
-        for(int i = 0;i<str.length();i++){
-            String letra = str.substring(i);
-            int indexAlfabeto = alfabetoAlterado.indexOf(letra);
-            decodificada += alfabetoNormal.substring(indexAlfabeto);
+        for(int i = 0; i<str.length();i++){
+            letra = Character.toString(str.charAt(i));
+            for( int j = 0; j<alfabetoAlterado.length();j++){
+                if(letra.equals(Character.toString(alfabetoAlterado.charAt(j)))){
+                    saida += alfabetoNormal.charAt(j);
+                }
+            }
+            
         }
-        return decodificada;
+        return saida;
     }
 
-    @Override
+   
     public String getMatriculaAutor() {
         return "18106131";
     }
 
-    @Override
+    
     public String getNomeAutor() {
         return "Gabriel Tasca Villa";
     }

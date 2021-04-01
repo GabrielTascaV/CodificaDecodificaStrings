@@ -1,8 +1,8 @@
 package Codificadores;
 
 public class Codifica18106131 implements Codifica {
-    public String alfabetoNormal = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ:çãâôõÇÃÂÔÕÉ/*?{}()[]";
-    public String alfabetoAlterado = "bcaefdhigkjlnomqrptuswxvyzBCAEFDHIGKLJNOMQRPTUSWXVZY-ôçõâãÔÇÕÂÉÃ()[]*?/{}";
+    public String alfabetoNormal = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ:çãâôõéêÇÃÂÔÕÉÊ/*?{}()[]";
+    public String alfabetoAlterado = "bcaefdhigkjlnomqrptuswxvyzBCAEFDHIGKLJNOMQRPTUSWXVZY-ôçõâéêãÔÇÕÂÉÊÃ()[]*?/{}";
 
     
     public String codifica(String str){
